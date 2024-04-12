@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { routes } from '~/constants'
+import { useGameStore } from '~/composables/game';
+
+// create a blank game store
+const game = useGameStore()
+
 const online = useOnline()
+// const online = false // for testing offline
+
 </script>
 
 <template>
@@ -18,6 +26,9 @@ const online = useOnline()
         </div>
       </template>
     </Suspense>
-    <InputEntry />
+    <InputEntry
+      placeholder="Name Your Game"
+      :next-step="routes.game"
+    />
   </div>
 </template>
