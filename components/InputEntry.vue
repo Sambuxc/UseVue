@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const game = useGameStore()
 const props = defineProps({
   placeholder: String,
   nextStep: String, // must represent a valid route
@@ -8,17 +7,16 @@ const props = defineProps({
     default: false,
   },
 })
-const model = defineModel()
-
 const emit = defineEmits(['keyEnter', 'buttonPress'])
-
-
+// const game = useGameStore()
+const model = defineModel()
 </script>
 
 <template>
   <div>
     <input
       id="input"
+      v-model="model"
       :placeholder="props.placeholder"
       type="text" autocomplete="off"
       p="x-4 y-2" m="t-5" w="250px"
@@ -26,7 +24,6 @@ const emit = defineEmits(['keyEnter', 'buttonPress'])
       border="~ rounded gray-200 dark:gray-700"
       outline="none active:none"
       @keydown.enter="emit('keyEnter')"
-      v-model="model"
     >
     <div>
       <button

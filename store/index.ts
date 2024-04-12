@@ -1,5 +1,5 @@
-import { createGlobalState, useStorage } from '@vueuse/core';
+import { createGlobalState, useStorage } from '@vueuse/core'
 
 export const persistGameName = createGlobalState(
-  (name: String) => useStorage('gameName', name),
-);
+  (name: string) => useStorage('gameName', name),
+)

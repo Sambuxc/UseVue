@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { routes } from '~/constants'
-import { useGameStore } from '~/composables/game';
+import { useGameStore } from '~/composables/game'
 import { persistGameName } from '~/store'
 
 const router = useRouter()
@@ -15,21 +15,18 @@ const name = ref('')
 
 watchEffect(() => {
   game.setName(name.value)
-  console.log('gameName', game.getName())
 })
-
 
 function go() {
-  console.log('go')
-  if (name.value)
+  if (name.value) {
     persistGameName(game.getName())
     router.push(`/${routes.game}/${encodeURIComponent(name.value)}`)
+  }
 }
 
-const acceptableLen = computed(() : boolean => {
+const acceptableLen = computed((): boolean => {
   return name.value.length > 2
 })
-
 </script>
 
 <template>
@@ -49,11 +46,11 @@ const acceptableLen = computed(() : boolean => {
       </template>
     </Suspense>
     <InputEntry
-      placeholder="Name Your Game"
       v-model="name"
+      placeholder="Name Your Game"
+      :is-disabled="!acceptableLen"
       @key-enter="go"
       @button-press="go"
-      :is-disabled="!acceptableLen"
     />
   </div>
 </template>

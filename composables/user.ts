@@ -5,7 +5,7 @@ export const useUserStore = defineStore('user', () => {
    * Current named of the user.
    */
   const firstName = ref('')
-  const lastName = ref('')
+  // const lastName = ref('')
   const previousNames = ref(new Set<string>())
 
   const usedNames = computed(() => Array.from(previousNames.value))

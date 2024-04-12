@@ -8,10 +8,8 @@ export const useGameStore = defineStore('game', () => {
   const difficulty = ref('')
   const trickList = ref([])
 
-
   /**
    * Changes the current name of the game.
-   * 
    * @param val - new name to set
    */
   function setName(val: string) {
@@ -27,7 +25,6 @@ export const useGameStore = defineStore('game', () => {
 
   /**
    * Sets the difficulty of the game.
-   *
    * @param val - difficulty to set
    */
   function setDifficulty(val: string) {
@@ -36,7 +33,6 @@ export const useGameStore = defineStore('game', () => {
 
   /**
    * Sets the a trick list of the game.
-   * 
    * @param val - trick list array to set
    */
   function setTrickList(val: []) {
@@ -50,7 +46,7 @@ export const useGameStore = defineStore('game', () => {
     return {
       name: name.value,
       difficulty: difficulty.value,
-      trickList: trickList.value
+      trickList: trickList.value,
     }
   }
 
@@ -59,7 +55,7 @@ export const useGameStore = defineStore('game', () => {
     setDifficulty,
     setTrickList,
     returnAllData,
-    getName
+    getName,
   }
 })
 
